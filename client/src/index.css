@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+.homebody {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('./assets/annie-spratt-R3LcfTvcGWY-unsplash.JPG');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+.menubody{
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('./assets/annie-spratt-R3LcfTvcGWY-unsplash.JPG');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+}
+.formbody{
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('./assets/annie-spratt-R3LcfTvcGWY-unsplash.JPG');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+

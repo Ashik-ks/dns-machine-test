@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
-const cors = require('cors')
+const cors = require('cors');
+const path = require('path')
 
 const mongoConnect = require('./db/connect');
 mongoConnect()
@@ -10,6 +11,7 @@ mongoConnect()
 const menuRouter  = require('./router/menuRouter')
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, '../client')));
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use(menuRouter);

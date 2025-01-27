@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import axios from 'axios'; // Import axios for API calls
-import Footer from './Footercontent';
+import { toast } from 'react-toastify';
 
 const Form = () => {
   const navigate = useNavigate();
@@ -14,7 +14,6 @@ const Form = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [menuid, setMenuid] = useState('');
-  console.log("rere : ",name,description,menuid,price)
   
   const [showAddMenuForm, setShowAddMenuForm] = useState(false); // State to show Add Menu Form
   const [showAddItemForm, setShowAddItemForm] = useState(false); // State to show Add Item Form
@@ -59,7 +58,7 @@ const Form = () => {
   const addMenu = async (e) => {
     e.preventDefault(); 
     if (!name || !description) {
-      alert('Please fill out all fields');
+      toast.error('Please fill out all fields');
       return;
     }
     
@@ -68,20 +67,20 @@ const Form = () => {
         name,
         description
       });
-      console.log('Menu added successfully:', response.data);
+      toast.success(response.message || "Menu added successfully");
       setName(''); 
       setDescription('');
       closeForm(); 
     } catch (error) {
+      toast.error('Error adding menu');
       console.error('Error adding menu:', error);
     }
   };
   
   const addItem = async (e) => {
-    console.log("button clicked")
     e.preventDefault(); 
     if (!name || !description || !price || !menuid) {
-      alert('Please fill out all fields');
+      toast.error('Please fill out all fields');
       return;
     }
   
@@ -92,13 +91,14 @@ const Form = () => {
         price,
         menuId: menuid
       });
-      console.log('Item added successfully:', response.data);
+      toast.success(response.message || "Item added successfully");
       setName(''); 
       setDescription('');
       setPrice('');
       setMenuid('');
       closeForm(); 
     } catch (error) {
+      toast.error('Error adding item');
       console.error('Error adding item:', error);
     }
   };

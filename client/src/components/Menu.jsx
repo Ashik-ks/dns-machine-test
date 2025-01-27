@@ -12,7 +12,6 @@ const Menu = () => {
     const [items, setItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    console.log("selectedmenu : ", selectedMenu)
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -169,7 +168,7 @@ const Menu = () => {
                                 Contact
                             </a>
                         </li>
-                        <li><a href="#menu" className="text-md" onChange={() => navigate('/home')}>Add Something</a></li>
+                        <li><a href="#menu" className="text-md px-2 font-bold" onChange={() => navigate('/home')}>Add Something</a></li>
                     </ul>
                 </div>
             )}

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 import Footer from './Footercontent'
+const apiUrl = import.meta.env.VITE_SERVER_APPURL
 
 const Menu = () => {
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Menu = () => {
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                let response = await axios.get(`http://localhost:3000/api/get-menu`);
+                let response = await axios.get(`${apiUrl}/api/get-menu`);
                 setMenu(response.data.data);
                 setSelectedMenu(response.data.data[0]?._id);
             } catch (error) {
@@ -35,7 +36,7 @@ const Menu = () => {
         const fetchItems = async () => {
             if (selectedMenu) {
                 try {
-                    let response = await axios.get(`http://localhost:3000/api/get-items`, {
+                    let response = await axios.get(`${apiUrl}/api/get-items`, {
                         params: {
                             menu: selectedMenu,
                             page: currentPage,

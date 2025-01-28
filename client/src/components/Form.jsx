@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import axios from 'axios'; // Import axios for API calls
 import { toast } from 'react-toastify';
+const apiUrl = import.meta.env.VITE_SERVER_APPURL
 
 const Form = () => {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ const Form = () => {
     }
     
     try {
-      const response = await axios.post(`http://localhost:3000/api/create-menu`, {
+      const response = await axios.post(`${apiUrl}/api/create-menu`, {
         name,
         description
       });
@@ -85,7 +86,7 @@ const Form = () => {
     }
   
     try {
-      const response = await axios.post(`http://localhost:3000/api/create-menu-item`, {
+      const response = await axios.post(`${apiUrl}/api/create-menu-item`, {
         name,
         description,
         price,
